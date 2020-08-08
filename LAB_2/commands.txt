@@ -1,0 +1,11 @@
+1. Creating addition.netmodule
+
+>csc /t:module addition.cs
+
+2. Creating multiplication.netmodule
+
+>csc /t:module multiplication.cs
+
+3. Creating calc.dll by combining addition.netmodule and multiplication.netmodule
+
+>csc /t:library /out:calc.dll /addmodule:addition.netmodule /addmodule:multiplication.netmodule
