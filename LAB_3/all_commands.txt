@@ -1,0 +1,25 @@
+1. Create keyfile
+>sn -k mykey.snk
+
+2. Create strong named assembly calc.dll from calc.cs
+>csc /t:library /keyfile:mykey.snk calc.cs
+
+3. Deploy calc.dll to GAC
+>gacutil -i calc.dll
+
+4.Steps to create new version 1.0.0.0
+- Add these two lines in calc.cs
+	using System.Reflection;
+	[assembly: AssemblyVersion("1.0.0.0")]
+
+- compile using keyfile
+	>csc /t:library /keyfile:mykey.snk calc.cs
+
+-verify change in version
+	>ildasm calc.dll
+	(assembly version would be 1.0.0.0)
+
+-deployment to GAC
+	>gacutil -i calc.dll
+
+-configure driver.exe to use new version win driver.exe.config
