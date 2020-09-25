@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Test 2";
+}
+<div>
+    <h3>Sum of numbers:</h3>
+    <form action="/home/test2" method="post">
+        Number 1: <input type="number" name="num1" id="num1" /><br />
+        Number 2: <input type="number" name="num2" id="num2" /><br />
+        <input type="submit" value="Add" /><br /><br />
+    </form>
+    @if (ViewBag.Sum != null)
+    {
+        @ViewBag.Sum<br />
+    }
+
+</div>

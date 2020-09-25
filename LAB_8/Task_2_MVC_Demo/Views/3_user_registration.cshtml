@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Registration";
+}
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.Label("Name: ")
+        @Html.TextBox("Name")
+        <br /><br />
+
+        @Html.Label("Email: ")
+        @Html.TextBox("Email", "", new { type = "email" })
+        <br /><br />
+
+        @Html.Label("Password: ")
+        @Html.Password("Password")
+        <br /><br />
+
+        @Html.Label("Confirm Password: ")
+        @Html.Password("ConfirmPassword")
+        <br /><br />
+
+        @Html.Label("Phone number: ")
+        @Html.TextBox("PhoneNo")
+        <br /><br />
+
+        @Html.Label("Gender: ")<br />
+        @Html.RadioButton("Gender", "Male")<span> Male</span><br>
+        @Html.RadioButton("Gender", "Female")<span> Female</span><br />
+        @Html.RadioButton("Gender", "Other")<span> Other</span><br />
+        <br /><br />
+
+        @Html.Label("Languages Known: ")<br />
+        @Html.CheckBox("C++", false)<span>C++</span><br />
+        @Html.CheckBox("Java", false)<span>Java</span><br />
+        @Html.CheckBox("Python", false)<span>Python</span><br />
+        <button type="submit">Submit</button>
+
+    }
+    @if (@ViewBag.Details != null)
+    {
+        @ViewBag.Nm<br />
+        @ViewBag.Email<br />
+        @ViewBag.Pwd<br />
+        @ViewBag.Phn<br />
+        @ViewBag.Gender<br />
+        @ViewBag.Langs<br />
+    }
+    <br />
+</div>
